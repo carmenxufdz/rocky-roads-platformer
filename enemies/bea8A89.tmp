@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcrxjt35cmmuf"]
+
+[ext_resource type="Script" path="res://enemies/bear.gd" id="1_awapx"]
+[ext_resource type="Texture2D" uid="uid://cusocktbl5qu" path="res://enemies/assets/bear_brown.png" id="1_dalmy"]
+[ext_resource type="PackedScene" uid="uid://b1k48fnrae2mf" path="res://enemies/damage_hitbox.tscn" id="3_e0agn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v4lkb"]
+atlas = ExtResource("1_dalmy")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0h22"]
+atlas = ExtResource("1_dalmy")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yusje"]
+atlas = ExtResource("1_dalmy")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rowvg"]
+atlas = ExtResource("1_dalmy")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_snwfp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4lkb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0h22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yusje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rowvg")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdguo"]
+size = Vector2(23, 16)
+
+[node name="Bear" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_awapx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_snwfp")
+animation = &"walking"
+frame_progress = 0.73352
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 6)
+shape = SubResource("RectangleShape2D_hdguo")
+
+[node name="leftCheck" type="RayCast2D" parent="."]
+position = Vector2(-10, 0)
+target_position = Vector2(0, 20)
+
+[node name="rightCheck" type="RayCast2D" parent="."]
+position = Vector2(10, 0)
+target_position = Vector2(0, 20)
+
+[node name="DamageHitbox" parent="." instance=ExtResource("3_e0agn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox"]
+position = Vector2(2, 6)
+shape = SubResource("RectangleShape2D_hdguo")

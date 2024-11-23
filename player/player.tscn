@@ -1,3 +1,27 @@
-[gd_scene format=3 uid="uid://bnfycodcftk3w"]
+[gd_scene load_steps=4 format=3 uid="uid://bnfycodcftk3w"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_q7oau"]
+[ext_resource type="SpriteFrames" uid="uid://cyjlhxd3snirr" path="res://player/skins/archer.tres" id="2_jmusy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qifnx"]
+radius = 5.0
+height = 14.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_q7oau")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_jmusy")
+animation = &"attack01"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CapsuleShape2D_qifnx")
+
+[node name="Check" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(0, 12)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]

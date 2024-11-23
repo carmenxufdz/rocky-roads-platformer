@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://b3gbya2e4sqry"]
+
+[ext_resource type="Script" path="res://enemies/bat.gd" id="1_0k3ep"]
+[ext_resource type="Texture2D" uid="uid://deqdvkamqg1es" path="res://enemies/assets/bat.png" id="1_dcywk"]
+[ext_resource type="PackedScene" uid="uid://b1k48fnrae2mf" path="res://enemies/damage_hitbox.tscn" id="3_26rvh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wupan"]
+atlas = ExtResource("1_dcywk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdcqg"]
+atlas = ExtResource("1_dcywk")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufqva"]
+atlas = ExtResource("1_dcywk")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vlpg"]
+atlas = ExtResource("1_dcywk")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esfq8"]
+atlas = ExtResource("1_dcywk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ymasc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wupan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdcqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufqva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vlpg")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esfq8")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_og7bi"]
+radius = 4.0
+height = 16.0
+
+[node name="Bat" type="CharacterBody2D"]
+script = ExtResource("1_0k3ep")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ymasc")
+animation = &"sleep"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 0)
+shape = SubResource("CapsuleShape2D_og7bi")
+
+[node name="DamageHitbox" parent="." instance=ExtResource("3_26rvh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox"]
+position = Vector2(-2, 0)
+shape = SubResource("CapsuleShape2D_og7bi")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
