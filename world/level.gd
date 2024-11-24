@@ -11,7 +11,7 @@ var player_spawn_location = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#backgroundMusic.play()
+	backgroundMusic.play()
 	player.connect_camera(camera)
 	player_spawn_location = player.global_position
 	Events.connect("player_died",Callable(self, "_player_died"),CONNECT_DEFERRED)
@@ -21,7 +21,6 @@ func _ready() -> void:
 func _player_died() -> void:
 	deathTimer.start(1)
 	await deathTimer.timeout
-	
 	var new_player = PlayerScene.instantiate()
 	add_child(new_player)
 	new_player.position = player_spawn_location

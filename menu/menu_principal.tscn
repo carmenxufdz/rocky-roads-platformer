@@ -1,4 +1,4 @@
-[gd_scene load_steps=145 format=3 uid="uid://chub82xp60vrn"]
+[gd_scene load_steps=151 format=3 uid="uid://chub82xp60vrn"]
 
 [ext_resource type="Texture2D" uid="uid://bx3ko47bvh2kp" path="res://menu/assets/background/frame0000.png" id="1_brf87"]
 [ext_resource type="Script" path="res://menu/menu_principal.gd" id="1_oi61t"]
@@ -143,6 +143,12 @@
 [ext_resource type="Texture2D" uid="uid://cbm6ok640d1ia" path="res://menu/assets/background/frame0139.png" id="140_2ltke"]
 [ext_resource type="Texture2D" uid="uid://c4cf5v77v3vx7" path="res://menu/assets/background/frame0140.png" id="141_niwgf"]
 [ext_resource type="AudioStream" uid="uid://bcy5guegthk2s" path="res://sound/menu.mp3" id="143_3i20i"]
+[ext_resource type="Texture2D" uid="uid://dosm1cl07q4h8" path="res://menu/assets/buttons/PlayBtn.png" id="144_81a8q"]
+[ext_resource type="Texture2D" uid="uid://dg736l3gxen7" path="res://menu/assets/buttons/PlayClick.png" id="145_ijabt"]
+[ext_resource type="Texture2D" uid="uid://b6upbq57icf0g" path="res://menu/assets/buttons/OptBtn.png" id="146_e5yy1"]
+[ext_resource type="Texture2D" uid="uid://5rol26va0myv" path="res://menu/assets/buttons/OptClick.png" id="147_d1o1l"]
+[ext_resource type="Texture2D" uid="uid://sfs2eh11gvjt" path="res://menu/assets/buttons/ExitBtn.png" id="148_idtht"]
+[ext_resource type="Texture2D" uid="uid://chvxl6gencmmd" path="res://menu/assets/buttons/ExitClick.png" id="149_xtwfc"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13msl"]
 animations = [{
@@ -590,3 +596,32 @@ sprite_frames = SubResource("SpriteFrames_13msl")
 
 [node name="BackgrounMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("143_3i20i")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_left = -1.0
+offset_top = 59.0
+offset_right = 4292.0
+offset_bottom = 847.0
+scale = Vector2(0.075, 0.075)
+
+[node name="Play" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("144_81a8q")
+texture_pressed = ExtResource("145_ijabt")
+
+[node name="Options" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("146_e5yy1")
+texture_pressed = ExtResource("147_d1o1l")
+
+[node name="Exit" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("148_idtht")
+texture_pressed = ExtResource("149_xtwfc")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

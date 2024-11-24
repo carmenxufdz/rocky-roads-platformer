@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bm7pp4fohx1xu"]
+
+[ext_resource type="Script" path="res://player/proyectileData.gd" id="1_cl6jp"]
+
+[resource]
+script = ExtResource("1_cl6jp")

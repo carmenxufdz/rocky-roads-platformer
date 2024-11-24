@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://u1w3i5brqd58"]
+
+[ext_resource type="Script" path="res://player/arrow.gd" id="1_8blct"]
+[ext_resource type="Texture2D" uid="uid://boi8sn30eonhq" path="res://player/assets/proyectile/arrow/Arrow01(32x32).png" id="2_rd75f"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_onpcp"]
+a = Vector2(-9, 0)
+b = Vector2(10, 0)
+
+[node name="Arrow" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_8blct")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_rd75f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_onpcp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
