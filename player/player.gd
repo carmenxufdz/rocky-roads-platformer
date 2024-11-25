@@ -19,6 +19,8 @@ func _ready() -> void:
 	double_jump = playerData.DOUBLE_JUMP_COUNT
 	# Cargar las animaciones del personaje al iniciar
 	animatedSprite.sprite_frames = playerData.SKIN
+	
+		
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
