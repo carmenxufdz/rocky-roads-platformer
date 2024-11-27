@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var HEALTH: int = 20
+@export var HEALTH: int = 50
 @export var SPEED: float = 25
 
 var direction = Vector2.RIGHT

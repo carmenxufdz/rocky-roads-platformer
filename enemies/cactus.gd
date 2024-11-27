@@ -11,7 +11,7 @@ var direction = Vector2.RIGHT
 @onready var leftCheck: = $leftCheck
 
 var player: Node2D = null
-var is_attacking: bool = false
+var is_returning: bool = false  # Flag para indicar si el enemigo está regresando al otro extremo
 
 func _ready() -> void:
 	add_to_group("killable_enemies")  # Añadir el oso al grupo "enemies"
@@ -19,48 +19,63 @@ func _ready() -> void:
 	player = get_parent().get_parent().get_node_or_null("Player")
 
 func _physics_process(delta: float) -> void:
-	if player:
-		var distance_to_player = global_position.distance_to(player.global_position)
-		if distance_to_player <= DETECTION_RADIUS:
+	var distance_to_player = global_position.distance_to(player.global_position)
+	if player and distance_to_player <= DETECTION_RADIUS:
+		if can_move_towards_player():
 			chase_player(delta)
 		else:
-			move(delta)
+			return_to_platform(delta)
 	else:
-			move(delta)
+		patrol(delta)
 	
-	if direction == Vector2.RIGHT:
-		animatedSprite.flip_h = false
-	else:
-		animatedSprite.flip_h = true
+	animatedSprite.flip_h = direction == Vector2.RIGHT
 
 	move_and_slide()
 
-func move (delta: float) -> void:
-	animatedSprite.play("default")
+func _turn_around() -> bool:
+	# Detectar colisiones con paredes o bordes
 	var found_wall = is_on_wall()
 	var found_ledge = not leftCheck.is_colliding() or not rightCheck.is_colliding()
 	
-	if found_wall or found_ledge:
+	return found_ledge or found_wall
+	
+func patrol (delta: float) -> void:
+	if _turn_around():
+		# Cambiar dirección al encontrar un borde o una pared
+		is_returning = false
 		direction *= -1
-		
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
 
-	velocity = direction * SPEED
+	# Movimiento en patrullaje
+	velocity.x = direction.x * SPEED
+	animatedSprite.play("default")
 	
 func chase_player(delta: float) -> void:
-	# Detectar bordes mientras persigue al jugador
-	var found_ledge = not leftCheck.is_colliding() or not rightCheck.is_colliding()
-	if found_ledge:
-		# Si encuentra un borde, no se mueve más allá y vuelve a patrullar
-		move(delta)
-		return
-
-	# Perseguir al jugador si no hay bordes
+	is_returning = false
+	# Movimiento hacia el jugador si es seguro
 	var direction_to_player = (player.global_position - global_position).normalized()
 	velocity.x = SPEED * sign(direction_to_player.x)
 	direction = Vector2.RIGHT if velocity.x > 0 else Vector2.LEFT
 	animatedSprite.play("angry")
 	
+
+func return_to_platform(delta: float) -> void:
+	# Moverse hacia el extremo opuesto de la plataforma si no puede perseguir al jugador
+	if not is_returning:
+		is_returning = true
+		direction *= -1  # Cambiar dirección para regresar al otro extremo
 	
+	velocity.x = direction.x * SPEED
+	animatedSprite.play("default")
+	
+	# Detener el retorno si llegamos al borde opuesto
+	patrol(delta)
+		
+func can_move_towards_player() -> bool:
+	if _turn_around() or is_returning:
+		return false
+	# Detectar si el enemigo puede moverse hacia el jugador sin caerse
+	if velocity.x > 0:  # Moviéndose a la derecha
+		return rightCheck.is_colliding()
+	elif velocity.x < 0:  # Moviéndose a la izquierda
+		return leftCheck.is_colliding()
+	return false

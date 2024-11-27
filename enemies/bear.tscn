@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdguo"]
-size = Vector2(23, 18.75)
+size = Vector2(25.5, 18.75)
 
 [node name="Bear" type="CharacterBody2D"]
 collision_layer = 4
@@ -67,5 +67,5 @@ target_position = Vector2(0, 20)
 [node name="DamageHitbox" parent="." instance=ExtResource("3_e0agn")]
 
 [node name="DamageShape" type="CollisionShape2D" parent="DamageHitbox"]
-position = Vector2(2, 6.625)
+position = Vector2(0.75, 6.625)
 shape = SubResource("RectangleShape2D_hdguo")

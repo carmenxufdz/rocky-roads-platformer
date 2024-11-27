@@ -62,6 +62,8 @@ size = Vector2(14, 21)
 position = Vector2(1, -16)
 collision_layer = 4
 script = ExtResource("1_14m1n")
+HEALTH = null
+SPEED = null
 DETECTION_RADIUS = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

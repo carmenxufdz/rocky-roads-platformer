@@ -12,6 +12,7 @@ class_name Player
 
 var initial_player_y: float = 0.0
 var is_shooting: bool = false
+var is_dead: bool = false  # Bandera para verificar si el jugador está muerto
 
 func _ready() -> void:
 	initial_player_y = global_position.y  # Guardamos la posición Y inicial del jugador
@@ -21,6 +22,9 @@ func _ready() -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("click") and not is_shooting:
@@ -85,6 +89,7 @@ func shoot() -> void:
 		animatedSprite.flip_h = false
 		
 func player_die() -> void:
+	is_dead = true
 	# Iniciar la animación de muerte
 	SoundPlayer.play_sound(SoundPlayer.LOOSE)
 	animatedSprite.play("death")
