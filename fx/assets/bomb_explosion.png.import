@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjcjp112qfta4"
-path="res://.godot/imported/bullet_windtrail.png-346d01a605a273122792c8420d6a9bbb.ctex"
+uid="uid://c1ises3um45xg"
+path="res://.godot/imported/bomb_explosion.png-ce67fdcbcbbc7dce6f7c60c741a1712c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/bullet_windtrail.png"
-dest_files=["res://.godot/imported/bullet_windtrail.png-346d01a605a273122792c8420d6a9bbb.ctex"]
+source_file="res://fx/assets/bomb_explosion.png"
+dest_files=["res://.godot/imported/bomb_explosion.png-ce67fdcbcbbc7dce6f7c60c741a1712c.ctex"]
 
 [params]
 

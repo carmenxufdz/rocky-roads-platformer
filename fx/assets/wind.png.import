@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csbp5txyqgxq0"
-path="res://.godot/imported/cannon_fire_smoke.png-105f778c31874c234d65cd3543d4b699.ctex"
+uid="uid://cth6wffjsfwh"
+path="res://.godot/imported/wind.png-47752c32048988b3c6110daf35705281.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/cannon_fire_smoke.png"
-dest_files=["res://.godot/imported/cannon_fire_smoke.png-105f778c31874c234d65cd3543d4b699.ctex"]
+source_file="res://fx/assets/wind.png"
+dest_files=["res://.godot/imported/wind.png-47752c32048988b3c6110daf35705281.ctex"]
 
 [params]
 

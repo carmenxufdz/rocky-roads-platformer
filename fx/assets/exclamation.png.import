@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq4ohon6woshi"
-path="res://.godot/imported/shine_white.png-2a8e2c37ad7aed83d2cbdb3d35f6020a.ctex"
+uid="uid://v3oqoiirji6v"
+path="res://.godot/imported/exclamation.png-59522e20c9a3e494b5937376dc1b4784.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/shine_white.png"
-dest_files=["res://.godot/imported/shine_white.png-2a8e2c37ad7aed83d2cbdb3d35f6020a.ctex"]
+source_file="res://fx/assets/exclamation.png"
+dest_files=["res://.godot/imported/exclamation.png-59522e20c9a3e494b5937376dc1b4784.ctex"]
 
 [params]
 

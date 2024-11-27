@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdg23f57ekbcu"
-path="res://.godot/imported/rain_particles.png-6a9bde13e48ff66b677f666e3940237c.ctex"
+uid="uid://csbp5txyqgxq0"
+path="res://.godot/imported/cannon_fire_smoke.png-d48e2ab4ee43fc9012e113715940b94e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/rain_particles.png"
-dest_files=["res://.godot/imported/rain_particles.png-6a9bde13e48ff66b677f666e3940237c.ctex"]
+source_file="res://fx/assets/cannon_fire_smoke.png"
+dest_files=["res://.godot/imported/cannon_fire_smoke.png-d48e2ab4ee43fc9012e113715940b94e.ctex"]
 
 [params]
 

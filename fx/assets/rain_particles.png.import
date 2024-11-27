@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bm2cfau47rrml"
-path="res://.godot/imported/dust.png-afadf384bdef432f731fda6491fee565.ctex"
+uid="uid://bdg23f57ekbcu"
+path="res://.godot/imported/rain_particles.png-b82c490bed1fc36d1543f2b531566df9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/dust.png"
-dest_files=["res://.godot/imported/dust.png-afadf384bdef432f731fda6491fee565.ctex"]
+source_file="res://fx/assets/rain_particles.png"
+dest_files=["res://.godot/imported/rain_particles.png-b82c490bed1fc36d1543f2b531566df9.ctex"]
 
 [params]
 

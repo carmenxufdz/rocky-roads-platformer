@@ -3,7 +3,7 @@ shader_type canvas_item;
 // Parámetros personalizables
 uniform vec4 lava_color = vec4(1.0, 0.0, 0.0, 0.5); // Color base de la lava (con transparencia)
 uniform vec4 glow_color = vec4(1.0, 1.0, 0.2, 1); // Color del brillo
-uniform float speed = 0.5; // Velocidad de la animación
+uniform float speed = 0.01; // Velocidad de la animación
 uniform float distortion = 0.01; // Intensidad de la distorsión
 uniform float glow_intensity = 0.75; // Intensidad del brillo
 uniform float noise_scale = 4.0; // Escala del ruido (ajustar según el tamaño del TileMap)

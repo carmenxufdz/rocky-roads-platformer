@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ises3um45xg"
-path="res://.godot/imported/bomb_explosion.png-9a4c3413990fa60e8e9b09e70014c30e.ctex"
+uid="uid://b2sx46ueebw0r"
+path="res://.godot/imported/walk_dust.png-5cae97cd466c76db5da5ea7a9d813173.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/bomb_explosion.png"
-dest_files=["res://.godot/imported/bomb_explosion.png-9a4c3413990fa60e8e9b09e70014c30e.ctex"]
+source_file="res://fx/assets/walk_dust.png"
+dest_files=["res://.godot/imported/walk_dust.png-5cae97cd466c76db5da5ea7a9d813173.ctex"]
 
 [params]
 

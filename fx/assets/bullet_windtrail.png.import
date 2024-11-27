@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br3slg3w3ub46"
-path="res://.godot/imported/boing.png-a8964dab89ab24bf641af77735113cc2.ctex"
+uid="uid://bjcjp112qfta4"
+path="res://.godot/imported/bullet_windtrail.png-ff6b6d1b7d2d31b01420daa75eabf090.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/boing.png"
-dest_files=["res://.godot/imported/boing.png-a8964dab89ab24bf641af77735113cc2.ctex"]
+source_file="res://fx/assets/bullet_windtrail.png"
+dest_files=["res://.godot/imported/bullet_windtrail.png-ff6b6d1b7d2d31b01420daa75eabf090.ctex"]
 
 [params]
 

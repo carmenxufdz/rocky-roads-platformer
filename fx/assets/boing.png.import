@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nesp03l5a8jv"
-path="res://.godot/imported/coin_collect.png-50cc6b9069d328993f63e919c18acc65.ctex"
+uid="uid://br3slg3w3ub46"
+path="res://.godot/imported/boing.png-80362c5cd0544e9f5f5b952bdc0cb119.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fx/coin_collect.png"
-dest_files=["res://.godot/imported/coin_collect.png-50cc6b9069d328993f63e919c18acc65.ctex"]
+source_file="res://fx/assets/boing.png"
+dest_files=["res://.godot/imported/boing.png-80362c5cd0544e9f5f5b952bdc0cb119.ctex"]
 
 [params]
 
