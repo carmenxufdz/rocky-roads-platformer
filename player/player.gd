@@ -11,12 +11,10 @@ class_name Player
 @onready var arrow_scene = preload("res://player/arrow.tscn")
 
 var initial_player_y: float = 0.0
-var double_jump
 var is_shooting: bool = false
 
 func _ready() -> void:
 	initial_player_y = global_position.y  # Guardamos la posición Y inicial del jugador
-	double_jump = playerData.DOUBLE_JUMP_COUNT
 	# Cargar las animaciones del personaje al iniciar
 	animatedSprite.sprite_frames = playerData.SKIN
 	
@@ -41,17 +39,12 @@ func _physics_process(delta: float) -> void:
 
 func handle_jump() -> void:
 	if is_on_floor():
-		double_jump = playerData.DOUBLE_JUMP_COUNT
 		if Input.is_action_just_pressed("up"):
 			SoundPlayer.play_sound(SoundPlayer.JUMP)
 			velocity.y = playerData.MAX_JUMP_VELOCITY
 	else:
 		if Input.is_action_just_released("up") and velocity.y < playerData.MIN_JUMP_VELOCITY:
 			velocity.y = playerData.MIN_JUMP_VELOCITY
-		if Input.is_action_just_pressed("up") and double_jump > 0:
-			SoundPlayer.play_sound(SoundPlayer.JUMP)
-			velocity.y = playerData.MAX_JUMP_VELOCITY
-			double_jump = -1
 
 func move_horizontal(delta: float) -> void:
 	var direction = Input.get_axis("left", "right")

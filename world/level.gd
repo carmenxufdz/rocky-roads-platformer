@@ -15,7 +15,7 @@ var score : int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	backgroundMusic.play()
+	#backgroundMusic.play()
 	player.connect_camera(camera)
 	player_spawn_location = player.global_position
 	
@@ -50,8 +50,4 @@ func assign_targets_to_enemies():
 	var enemies = enemies_container.get_children()
 	for enemy in enemies:
 		if enemy.is_in_group("navigation_enemies"):
-			if enemy.has_method("set_target"):
-				enemy.set_target(player)
-				print("Asignado Player a ", enemy.name)
-			else:
-				print("El enemigo ", enemy.name, " no tiene el método 'set_target'.")
+			enemy.set_target(player)

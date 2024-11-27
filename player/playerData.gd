@@ -8,7 +8,6 @@ class_name PlayerData
 @export var ACCELERATION: float = 1200.0
 @export var DECELERATION: float = 800.0
 @export var CLIMB_SPEED: float = 50
-@export var DOUBLE_JUMP_COUNT: int = 1
 @export var HEALTH: float = 100
 @export var HEARTS: float = 3
 

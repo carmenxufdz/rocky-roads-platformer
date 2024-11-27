@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://8ilky7k3ruit"]
+[gd_scene load_steps=55 format=4 uid="uid://8ilky7k3ruit"]
 
 [ext_resource type="Script" path="res://world/level.gd" id="1_qi5b6"]
 [ext_resource type="PackedScene" uid="uid://bnfycodcftk3w" path="res://player/player.tscn" id="2_1ta56"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ioblmdysf28r" path="res://world/mapa/deco/lava.png" id="17_38bmh"]
 [ext_resource type="PackedScene" uid="uid://dpa0oua32v1t5" path="res://UI/coin.tscn" id="21_hrahj"]
 [ext_resource type="PackedScene" uid="uid://b3gbya2e4sqry" path="res://enemies/bat.tscn" id="22_o7ci0"]
+[ext_resource type="PackedScene" uid="uid://bj6m8gklxlbep" path="res://enemies/cactus.tscn" id="23_lqc3g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_sv1h8"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -1001,9 +1002,6 @@ position = Vector2(42, 427)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(42, 427)
 
-[node name="Bear" parent="." instance=ExtResource("10_p2a67")]
-position = Vector2(222, 352)
-
 [node name="fluids" type="Node2D" parent="."]
 visible = false
 
@@ -1028,4 +1026,11 @@ position = Vector2(272, 464)
 [node name="Enemies" type="Node2D" parent="."]
 position = Vector2(320, 384)
 
+[node name="Bear" parent="Enemies" instance=ExtResource("10_p2a67")]
+position = Vector2(48, 40)
+
 [node name="Bat" parent="Enemies" instance=ExtResource("22_o7ci0")]
+position = Vector2(-40, 0)
+
+[node name="Cactus" parent="Enemies" instance=ExtResource("23_lqc3g")]
+position = Vector2(0, -32)
