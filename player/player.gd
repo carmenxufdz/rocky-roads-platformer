@@ -8,6 +8,9 @@ class_name Player
 @onready var check: = $Check 
 @onready var remoteTransform: = $RemoteTransform2D
 
+@onready var lava : TileMapLayer = $"../Fluids/lava"
+@onready var water : TileMapLayer= $"../Fluids/water"
+
 @onready var arrow_scene = preload("res://player/arrow.tscn")
 
 var initial_player_y: float = 0.0
@@ -22,11 +25,14 @@ func _ready() -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	if check_deadly_tile() and not is_dead: 
+		player_die()
+		
 	if is_dead:
 		return
-		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		
 	if Input.is_action_just_pressed("click") and not is_shooting:
 		shoot()
 		
@@ -92,6 +98,9 @@ func player_die() -> void:
 	is_dead = true
 	# Iniciar la animación de muerte
 	SoundPlayer.play_sound(SoundPlayer.LOOSE)
+	print("Stopping animation...")
+	animatedSprite.stop()
+	print("Playing death animation...")
 	animatedSprite.play("death")
 
 	# Conectar la señal animation_finished al método _on_death_animation_finished
@@ -122,3 +131,24 @@ func _on_death_animation_finished() -> void:
 	queue_free()
 	Events.emit_signal("player_died")
 	animatedSprite.animation_finished.disconnect(_on_death_animation_finished)
+
+func check_deadly_tile() -> bool:
+	# Convertir la posición global del personaje a coordenadas del TileMap
+	var tile_pos_lava = lava.local_to_map(global_position)
+	var tile_pos_water = water.local_to_map(global_position)
+	# Obtener el ID del tile en esa posición
+	var tile_id_lava = lava.get_cell_source_id(tile_pos_lava)
+	var tile_id_water = water.get_cell_source_id(tile_pos_water)
+	
+	# Verificar si el tile tiene datos personalizados marcados como peligrosos
+	if tile_id_lava != -1:  # Si hay un tile en la capa de lava
+		var custom_data_lava = lava.get_tile_set().get_custom_data_layer_name(tile_id_lava)
+		if custom_data_lava == "dangerous":
+			return true
+	
+	if tile_id_water != -1:  # Si hay un tile en la capa de agua
+		var custom_data_water = water.get_tile_set().get_custom_data_layer_name(tile_id_water)
+		if custom_data_water == "dangerous":
+			return true
+	
+	return false
