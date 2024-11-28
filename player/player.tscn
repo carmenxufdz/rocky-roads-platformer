@@ -14,7 +14,8 @@ script = ExtResource("1_q7oau")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_jmusy")
-animation = &"attack01"
+animation = &"walk"
+frame_progress = 0.780861
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

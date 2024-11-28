@@ -22,7 +22,7 @@ func _ready() -> void:
 	add_to_group("navigation_enemies")
 
 func _physics_process(delta: float) -> void:
-	if target:
+	if is_instance_valid(target):
 		var distance_to_target = global_position.distance_to(target.global_position)
 		if distance_to_target <= DETECTION_RADIUS:
 			# Persigue al jugador

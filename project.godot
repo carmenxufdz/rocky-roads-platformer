@@ -83,3 +83,7 @@ T={
 2d_navigation/layer_3="enemies"
 2d_physics/layer_4="objects"
 2d_navigation/layer_4="objects"
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
