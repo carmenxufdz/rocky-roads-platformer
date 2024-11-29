@@ -7,6 +7,7 @@ const PlayerScene = preload("res://player/player.tscn")
 @onready var timer: = $Timer
 @onready var backgroundMusic: = $backgroundMusic
 @onready var coinLabel := $Interface/CoinLabel
+@onready var deathLabel := $Interface/DeathLabel
 @onready var startAnimation := $Start
 @onready var finaltAnimation := $Final
 
@@ -14,6 +15,7 @@ const PlayerScene = preload("res://player/player.tscn")
 
 var player_spawn_location = Vector2.ZERO
 var score : int = 0
+var deaths : int = 0
 var can_play : bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -31,6 +33,8 @@ func _ready() -> void:
 	assign_targets_to_enemies(player)
 	
 	coinLabel.text = "%d" % score
+	deathLabel.text = "%d" % deaths
+	
 	
 	Events.connect("coin_collected", Callable(self, "_coin_collected"), CONNECT_DEFERRED)
 	Events.connect("player_died",Callable(self, "_player_died"),CONNECT_DEFERRED)
@@ -42,7 +46,11 @@ func _ready() -> void:
 func _player_died() -> void:
 	timer.start(1)  # Temporizador de muerte
 	await timer.timeout  # Esperar al temporizador
-
+	
+	deaths += 1
+	
+	deathLabel.text = "%d" % deaths
+	
 	# Eliminar al jugador anterior, si aún existe
 	if is_instance_valid(player):
 		player.queue_free()

@@ -15,7 +15,7 @@ func _ready() -> void:
 		sprite.flip_h = false  # Voltea el sprite si la flecha va hacia la izquierda
 	else:
 		sprite.flip_h = true  # No lo voltea si la flecha va hacia la derecha
-	await get_tree().create_timer(2,0).timeout
+	await get_tree().create_timer(10,0).timeout
 	queue_free()
 
 

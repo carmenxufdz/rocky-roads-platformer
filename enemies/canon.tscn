@@ -39,6 +39,7 @@ size = Vector2(18, 18)
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_ohbga")
 frame_progress = 0.644646
+speed_scale = 0.5
 script = ExtResource("2_fcg5d")
 
 [node name="Area2D" type="Area2D" parent="."]
