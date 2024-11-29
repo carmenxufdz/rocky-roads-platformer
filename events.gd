@@ -1,7 +1,7 @@
 extends Node
 
 signal player_died
-signal hit_checkpoint(checkpoint_position)
+signal hit_flag()
 signal player_damaged
 signal coin_collected(value)
 

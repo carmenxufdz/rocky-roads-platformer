@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://druwhg5qtliba"]
+
+[ext_resource type="PackedScene" uid="uid://b1k48fnrae2mf" path="res://enemies/damage_hitbox.tscn" id="1_1guyj"]
+[ext_resource type="Texture2D" uid="uid://biu0uykb1aef5" path="res://enemies/assets/bullet.png" id="1_m7gvp"]
+[ext_resource type="Script" path="res://enemies/bullet.gd" id="1_w28ea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynjgh"]
+size = Vector2(14, 11)
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+gravity_scale = 0.0
+script = ExtResource("1_w28ea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5.5)
+shape = SubResource("RectangleShape2D_ynjgh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_m7gvp")
+
+[node name="DamageHitbox" parent="." instance=ExtResource("1_1guyj")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageHitbox"]
+position = Vector2(1, -5.5)
+shape = SubResource("RectangleShape2D_ynjgh")

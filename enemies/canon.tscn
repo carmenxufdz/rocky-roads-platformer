@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkhfq36i0xtmu"]
+
+[ext_resource type="Texture2D" uid="uid://b1w3ql2qojttl" path="res://enemies/assets/cannon.png" id="1_akcng"]
+[ext_resource type="Script" path="res://enemies/canon.gd" id="2_fcg5d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeaqx"]
+atlas = ExtResource("1_akcng")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ml4w"]
+atlas = ExtResource("1_akcng")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67htv"]
+atlas = ExtResource("1_akcng")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ohbga"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeaqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ml4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67htv")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffmhi"]
+size = Vector2(18, 18)
+
+[node name="Canon" type="AnimatedSprite2D"]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_ohbga")
+frame_progress = 0.644646
+script = ExtResource("2_fcg5d")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_ffmhi")

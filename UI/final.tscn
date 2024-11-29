@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6j422knbcoqc"]
+
+[ext_resource type="PackedScene" uid="uid://jci5h6bhj7lf" path="res://fx/starsworks.tscn" id="1_ee6h4"]
+
+[node name="Final" type="CanvasLayer"]
+
+[node name="Starsworks" parent="." instance=ExtResource("1_ee6h4")]
+position = Vector2(154, 92)
+
+[node name="Starsworks2" parent="." instance=ExtResource("1_ee6h4")]
+position = Vector2(54, 45)
+scale = Vector2(0.75, 0.75)
+
+[node name="Starsworks3" parent="." instance=ExtResource("1_ee6h4")]
+position = Vector2(252, 132)
+scale = Vector2(0.75, 0.75)

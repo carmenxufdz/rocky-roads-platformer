@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcv7sl8nfhfxd"]
+
+[ext_resource type="Texture2D" uid="uid://cyqtgkyfuw3ba" path="res://enemies/assets/spikes.png" id="1_g51q6"]
+[ext_resource type="PackedScene" uid="uid://b1k48fnrae2mf" path="res://enemies/damage_hitbox.tscn" id="2_cku1v"]
+
+[node name="Spikes" type="Sprite2D"]
+position = Vector2(0, -8)
+texture = ExtResource("1_g51q6")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="DamageHitbox" parent="." instance=ExtResource("2_cku1v")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DamageHitbox"]
+polygon = PackedVector2Array(-8, 8, -8, 4, -4, -5, 0, 4, 3, -5, 8, 4, 8, 8)
